@@ -1,0 +1,9 @@
+# Ignore Obsidian vault structural files
+Antigravity.md
+Maps/
+Foundation/
+Skills/
+
+# Ignore Python cache and runtime compilation artifacts
+__pycache__/
+*.pyc
