@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Premium Floating Calculator | Antigravity Projects</title>
+  <!-- Google Fonts for Outfit and Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Background decorative glowing orbs -->
+  <div class="glow-orb orb-1"></div>
+  <div class="glow-orb orb-2"></div>
+  <div class="glow-orb orb-3"></div>
+
+  <!-- Main Showcase page -->
+  <main class="page-container">
+    <header class="page-header">
+      <div class="logo">
+        <span class="logo-icon">▲</span>
+        <span class="logo-text">ANTIGRAVITY</span>
+      </div>
+      <span class="project-tag">PROJECT #04</span>
+    </header>
+
+    <section class="hero-section">
+      <h1 class="hero-title">Sleek Floating <span class="gradient-text">Calculator</span></h1>
+      <p class="hero-subtitle">
+        A premium, draggable, glassmorphic calculator widget featuring a rich scientific engine, custom visual themes, synthesized audio feedback, and keyboard shortcuts.
+      </p>
+      
+      <div class="cta-group">
+        <button id="trigger-calc-btn" class="btn btn-primary">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="9" x2="15" y2="9"></line><line x1="9" y1="13" x2="15" y2="13"></line><line x1="9" y1="17" x2="15" y2="17"></line></svg>
+          Launch Calculator
+        </button>
+        <a href="#features" class="btn btn-secondary">Explore Features</a>
+      </div>
+    </section>
+
+    <!-- App Features Grid -->
+    <section id="features" class="features-section">
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">✨</div>
+          <h3>Glassmorphic Design</h3>
+          <p>Real-time backdrop filters, vibrant hover transitions, and responsive fluid animations designed to captivate.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🎛️</div>
+          <h3>Scientific Engine</h3>
+          <p>Seamlessly toggle between standard basic mode and an expanded scientific interface for trigonometry, logarithms, and power functions.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🎨</div>
+          <h3>Premium Themes</h3>
+          <p>Switch dynamically between multiple gorgeous palettes including Sleek Dark, Glassmorphism, Cyberpunk, Aurora Glow, and Sakura Pink.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">⌨️</div>
+          <h3>Keyboard Bound</h3>
+          <p>Full desktop keyboard integration allowing speedy computations, backspacing, clearing, and execution.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="page-footer">
+      <p>Built with Vanilla HTML, CSS, and JS by Antigravity AI Assistant</p>
+    </footer>
+  </main>
+
+  <!-- ======================================================== -->
+  <!-- FLOATING CALCULATOR WIDGET -->
+  <!-- ======================================================== -->
+  <div id="calculator-widget" class="calculator-widget theme-dark hidden" style="top: 15%; left: 60%;">
+    <!-- Widget Header (Drag Handle) -->
+    <div class="widget-header" id="widget-header">
+      <div class="widget-title">
+        <span class="header-icon">🧮</span>
+        <span>Antigravity Calc</span>
+      </div>
+      <div class="widget-controls">
+        <button id="calc-minimize" class="ctrl-btn minimize" title="Minimize">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+        </button>
+        <button id="calc-close" class="ctrl-btn close" title="Close">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Widget Body -->
+    <div class="widget-body">
+      <!-- Options Bar (Theme, Sound, Science Toggle, History Toggle) -->
+      <div class="options-bar">
+        <!-- Theme Selector Select dropdown -->
+        <div class="theme-picker">
+          <span class="picker-label">🎨</span>
+          <select id="theme-selector" class="custom-select">
+            <option value="theme-dark">Sleek Dark</option>
+            <option value="theme-glass">Glassmorphism</option>
+            <option value="theme-cyberpunk">Cyberpunk</option>
+            <option value="theme-aurora">Aurora Glow</option>
+            <option value="theme-sakura">Sakura Pink</option>
+            <option value="theme-light">Light Minimal</option>
+          </select>
+        </div>
+
+        <div class="right-options">
+          <!-- Audio Toggle -->
+          <button id="audio-toggle" class="option-btn active" title="Toggle Sound FX">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 5L6 9H2v6h4l5 4V5z"></path><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+          </button>
+          
+          <!-- History Toggle -->
+          <button id="history-toggle" class="option-btn" title="Toggle History Log">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          </button>
+
+          <!-- Sci Mode Toggle -->
+          <button id="science-toggle" class="option-btn" title="Toggle Scientific Mode">
+            <span class="sci-btn-label">f(x)</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Calculator Display Screen -->
+      <div class="display-container">
+        <!-- Upper Expression display -->
+        <div id="display-expr" class="display-expr"></div>
+        <!-- Main Result / input display -->
+        <div class="display-main-row">
+          <div id="display-main" class="display-main">0</div>
+        </div>
+        <!-- Display controls (Copy, Backspace) -->
+        <div class="display-actions">
+          <button id="copy-result" class="action-btn" title="Copy to clipboard">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+          </button>
+          <div class="copy-success-tooltip" id="copy-tooltip">Copied!</div>
+          <button id="btn-backspace" class="action-btn" title="Delete last character">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 4H8l-7 8 7 8h13a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z"></path><line x1="18" y1="9" x2="12" y2="15"></line><line x1="12" y1="9" x2="18" y2="15"></line></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- History Overlay Panel -->
+      <div id="history-panel" class="history-panel hidden">
+        <div class="history-header">
+          <span>Calculation History</span>
+          <button id="clear-history" class="clear-hist-btn" title="Clear All">Clear</button>
+        </div>
+        <div id="history-list" class="history-list">
+          <div class="empty-history">No calculations yet</div>
+        </div>
+      </div>
+
+      <!-- Keypad Containers -->
+      <div class="keypad-layout">
+        <!-- Scientific Keys (hidden or shown depending on toggle) -->
+        <div id="scientific-pad" class="scientific-pad hidden">
+          <button class="key key-sci" data-action="sin">sin</button>
+          <button class="key key-sci" data-action="cos">cos</button>
+          <button class="key key-sci" data-action="tan">tan</button>
+          <button class="key key-sci" data-action="pow">x<sup>y</sup></button>
+          <button class="key key-sci" data-action="sqrt">√</button>
+          <button class="key key-sci" data-action="log">log</button>
+          <button class="key key-sci" data-action="ln">ln</button>
+          <button class="key key-sci" data-action="pi">π</button>
+          <button class="key key-sci" data-action="e">e</button>
+          <button class="key key-sci" data-action="bracket-open">(</button>
+          <button class="key key-sci" data-action="bracket-close">)</button>
+          <button class="key key-sci" data-action="mod">mod</button>
+        </div>
+
+        <!-- Standard Keys -->
+        <div class="standard-pad">
+          <!-- Row 1 -->
+          <button class="key key-action" data-action="clear">C</button>
+          <button class="key key-operator" data-action="divide">÷</button>
+          <button class="key key-operator" data-action="multiply">×</button>
+          <button class="key key-operator" data-action="subtract">−</button>
+
+          <!-- Row 2 -->
+          <button class="key key-num" data-val="7">7</button>
+          <button class="key key-num" data-val="8">8</button>
+          <button class="key key-num" data-val="9">9</button>
+          <button class="key key-operator row-span-2" data-action="add">+</button>
+
+          <!-- Row 3 -->
+          <button class="key key-num" data-val="4">4</button>
+          <button class="key key-num" data-val="5">5</button>
+          <button class="key key-num" data-val="6">6</button>
+
+          <!-- Row 4 -->
+          <button class="key key-num" data-val="1">1</button>
+          <button class="key key-num" data-val="2">2</button>
+          <button class="key key-num" data-val="3">3</button>
+          <button class="key key-equals row-span-2" data-action="equals">=</button>
+
+          <!-- Row 5 -->
+          <button class="key key-num col-span-2" data-val="0">0</button>
+          <button class="key key-num" data-val=".">.</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Launching toggle widget helper button at bottom right (sticky) -->
+  <button id="floating-launch-btn" class="floating-launch-btn" title="Open Antigravity Calculator">
+    🧮
+  </button>
+
+  <script src="script.js"></script>
+</body>
+</html>
